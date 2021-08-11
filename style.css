@@ -1,0 +1,55 @@
+html, body{
+    height: 100%;
+    background:   #323437;
+}
+
+ul,nav{
+    list-style: none;
+    display: flex;
+    margin: 0px 3px;
+}
+li{
+    margin-right: 3px;
+    color: #5f605f;
+}
+i{
+    margin: 0 10px;
+}
+.fas:hover{
+    color: #bebebe;
+}
+a{
+    display: flex;
+    align-items: center;
+}
+
+#menuIconLogo{
+    flex-direction: row;
+}
+
+#menuOptionGame{
+    flex-direction: column;
+}
+
+.fas{
+    color: #646669;
+}
+
+.containerHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.menuIcon {
+    display: flex;
+}
+.optionGame{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+.optionGame ul li:hover{
+    color: #bebebe;
+}
