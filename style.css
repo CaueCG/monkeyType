@@ -1,6 +1,7 @@
 html, body{
     height: 100%;
     background:   #323437;
+    margin: 32px;
 }
 
 ul,nav{
@@ -11,6 +12,9 @@ ul,nav{
 li{
     margin-right: 3px;
     color: #5f605f;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 i{
     margin: 0 10px;
@@ -21,7 +25,16 @@ i{
 a{
     display: flex;
     align-items: center;
+    flex-direction: row;
 }
+a:hover{
+    color: #bebebe;
+}
+
+p{
+    color: #646669;
+}
+
 
 #menuIconLogo{
     flex-direction: row;
@@ -39,7 +52,6 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
 }
 .menuIcon {
     display: flex;
@@ -50,6 +62,40 @@ a{
     justify-content: flex-end;
     margin-right: 20px;
 }
-.optionGame ul li:hover{
+button:hover{
     color: #bebebe;
+}
+
+.buttonOptionGame{
+    border: none;
+    background: none;
+    font-weight: 600;
+    padding: 2px;
+    color: #646669;
+}
+
+.containerFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.containerFooter p{
+    color: #646669;
+}
+
+.iconSocialNetworks{
+    display: flex;
+    flex-direction: row;
+}
+
+.iconSocialNetworks i{
+    margin: 0px 2px;
+}
+.fab:hover{
+    color: #bebebe;
+}
+
+.containerMain{
+    height: 500px;
 }
