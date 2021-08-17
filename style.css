@@ -1,7 +1,8 @@
 html, body{
     height: 100%;
     background:   #323437;
-    margin: 32px;
+    margin: 15px 32px 5px 32px;
+    overflow: hidden;
 }
 
 ul,nav{
@@ -19,35 +20,52 @@ li{
 i{
     margin: 0 10px;
 }
-.fas:hover{
-    color: #bebebe;
-}
 a{
     display: flex;
     align-items: center;
     flex-direction: row;
+    text-decoration: none;
+}
+p{
+    color: #646669;
+}
+header{
+    margin-top: 50px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+main{
+    position: absolute;
+    top:150px;
+    width: 100%;
+}
+footer{
+    position: absolute;
+    bottom:0;
+    width: 100%;
 }
 a:hover{
     color: #bebebe;
 }
-
-p{
-    color: #646669;
+button:hover{
+    color: #bebebe;
 }
-
-
+.fas:hover{
+    color: #bebebe;
+}
 #menuIconLogo{
     flex-direction: row;
 }
-
 #menuOptionGame{
     flex-direction: column;
 }
-
+.fab:hover{
+    color: #bebebe;
+}
 .fas{
     color: #646669;
 }
-
 .containerHeader{
     display: flex;
     flex-direction: row;
@@ -60,12 +78,10 @@ p{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-right: 20px;
+    padding-right: 3px;
+    padding-top: 4px;
+    margin-right: 100px;
 }
-button:hover{
-    color: #bebebe;
-}
-
 .buttonOptionGame{
     border: none;
     background: none;
@@ -74,28 +90,135 @@ button:hover{
     color: #646669;
 }
 
+
+
+.containerMain{
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+.gameMonkey{
+    text-align: justify;
+    font-weight: 900;
+    margin: 0px 120px;
+}
+.buttonReset{
+    display: flex;
+    justify-content: center;
+}
+.buttonReset i{
+    padding:25px 50px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+.buttonReset .fas:hover{
+    color: #deb415;
+}
+.sheetComands{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.divSections{
+    display: flex;
+    flex-direction: column;
+}
+.sectionSheetComands{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.iconSheetComands{
+    padding: 1.6px 5px;
+    background: #646669;
+    color: #323437;
+    margin: 3px 10px 3px 3px;
+}
+.textSheetComands{
+    margin: 3px 10px 3px 3px;
+}
+
+
 .containerFooter{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-
 .containerFooter p{
     color: #646669;
 }
-
+.palleteColors{
+    display: flex;
+    align-items: center;
+    background:   #323437;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+.socialNetworks{
+    margin-right: 100px;
+    display:flex;
+    align-items: center;
+}
 .iconSocialNetworks{
     display: flex;
     flex-direction: row;
 }
-
 .iconSocialNetworks i{
     margin: 0px 2px;
 }
-.fab:hover{
-    color: #bebebe;
+
+
+@media screen and (max-width: 850px) {
+    #menuIconLogo{
+        display: flex;
+        flex-direction: column;
+    }
+    .menuIcon i{
+        margin: 10px;
+    }
+    #menuIconLogo nav{
+       justify-content: center;
+    }
+    #menuIconLogo nav ul{
+        display: flex;
+        width: 200px;
+        padding-left: 0;
+        justify-content: center;
+    }
+    #menuOptionGame{
+        padding-top:6px;
+    }
+    .palleteColors{
+        margin-left: 40px;
+    }
+    .socialNetworks ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .iconSocialNetworks p{
+        margin: 4px 0px;
+    }
+    .projectStudy p{
+        line-break: 20px;
+    }
+    .containerFooter{
+        min-width: 590px;
+    }
+    .divSections{
+        flex-direction: row;
+    }
+    .buttonReset i{
+        margin-bottom: 15px;
+    }
 }
 
-.containerMain{
-    height: 500px;
+@media screen and (max-width: 750px){
+    .buttonReset i{
+        margin-bottom: 0px;
+        padding: 10px 50px;
+    }
 }
