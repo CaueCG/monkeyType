@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 html, body{
     height: 100%;
     background:   #323437;
     margin: 15px 32px 5px 32px;
     overflow: hidden;
+    font-family: 'Roboto Mono', monospace;
 }
 
 ul,nav{
@@ -60,6 +63,24 @@ button:hover{
 #menuOptionGame{
     flex-direction: column;
 }
+#divLogoMonkey{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+#monkeySee{
+    color: #4f5053;
+    margin-bottom: -15px;
+    font-size: 0.8em;
+    
+}
+#monkeytype{
+    margin-top:0;
+    color: #deb415;
+    font-size: 2.7em;
+    font-weight: 400;
+}
+
 .fab:hover{
     color: #bebebe;
 }
@@ -74,6 +95,7 @@ button:hover{
 .menuIcon {
     display: flex;
 }
+
 .optionGame{
     display: flex;
     flex-direction: row;
@@ -159,16 +181,13 @@ button:hover{
     padding: 2px 5px;
 }
 .socialNetworks{
-    margin-right: 100px;
+    margin-right: 110px;
     display:flex;
     align-items: center;
 }
-.iconSocialNetworks{
-    display: flex;
-    flex-direction: row;
-}
 .iconSocialNetworks i{
     margin: 0px 2px;
+    color: #646669;
 }
 
 
@@ -195,10 +214,6 @@ button:hover{
     .palleteColors{
         margin-left: 40px;
     }
-    .socialNetworks ul{
-        display: flex;
-        flex-direction: column;
-    }
     .iconSocialNetworks p{
         margin: 4px 0px;
     }
@@ -214,11 +229,33 @@ button:hover{
     .buttonReset i{
         margin-bottom: 15px;
     }
+    .gameMonkey{
+        margin: 0px 100px;
+    }
+    footer p{
+        font-size: 0.95em;
+    }
 }
 
 @media screen and (max-width: 750px){
     .buttonReset i{
-        margin-bottom: 0px;
+        margin-bottom: 15px;
         padding: 10px 50px;
+    }
+    .gameMonkey{
+        margin: 0px 80px;
+        font-size: 0.95em;
+    }
+}
+
+
+@media screen and (max-width: 625px){
+    .buttonReset i{
+        margin-bottom: 30px;
+        padding: 10px 50px;
+    }
+    .gameMonkey{
+        margin: 0px 10px;
+        font-size: 0.95em;
     }
 }
