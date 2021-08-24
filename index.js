@@ -1,4 +1,4 @@
-function getApi(){
+/*function getApi(){
     const request = new XMLHttpRequest();
     const url = "https://goquotes-api.herokuapp.com/api/v1/random?count=1";
 
@@ -13,10 +13,104 @@ function getApi(){
 
 getApi();
 
+USANDO API DE FRASES ALEATÓRIAS*/
 
-function hello(){
-    console.log("hello World");
+
+//
+//Separando palavras e letras do Array
+//
+const gameMonkey = document.querySelector(" .gameMonkey p");
+const bReset = document.getElementById("buttonReset");
+
+let arrayPhrases = ["my", "mind", "of", "the", "medium",
+"apple", "somebody", "prototype", "haircut", "very",
+"felings", "world", "by", "have", "drive", "wanted",
+"motorcycle", "health", "birthday", "last", "from",
+"baggage", "location", "application", "story",
+"interface", "will", "Willie Wonka", "length", "she",
+"good", "work", "twister"];
+
+var Phrase = "";
+for (let i = 0; i < arrayPhrases.length-10; i++) {
+    let randomArrayPhrases = arrayPhrases[Math.floor(Math.random()*arrayPhrases.length)];
+
+    if(Phrase==""){
+        Phrase += randomArrayPhrases;
+    }else{
+        Phrase += " " + randomArrayPhrases;
+    }
 }
-const divColors = document.getElementById('palleteColors');
-divColors.addEventListener("click", hello);
+function randomArrayPhrases(){
+    var Phrase = "";
+    for (let i = 0; i < arrayPhrases.length-10; i++) {
+        let randomArrayPhrases = arrayPhrases[Math.floor(Math.random()*arrayPhrases.length)];
 
+        if(Phrase==""){
+            Phrase += randomArrayPhrases;
+        }else{
+            Phrase += " " + randomArrayPhrases;
+        }
+    }
+return gameMonkey.innerHTML = Phrase;
+}
+
+gameMonkey.innerHTML = Phrase;
+bReset.addEventListener("click", randomArrayPhrases);
+
+var words = Phrase.split(" ");
+var letters = words[0].split("");
+//
+//Sistema de cores
+//
+let contColors=true;
+bPalleteColors = document.getElementById("palleteColors");
+let newColor = document.querySelector(":root");
+function setNewColor(){
+   newColor.setAttribute("style", "--color1: #876571; --color2: #48373d; --color3: #b8a7aa; --color4: #eae5e9; --color5: #48373d" );
+}
+function setOriginalColor(){
+    newColor.setAttribute("style", " --color1: #deb415; --color2: #646669;--color3: #323437;--color4: #bebebe;--color5: #5f605f; " );
+ }
+
+function booleanColors(){
+    if(contColors){
+        setNewColor()
+        return contColors=false;
+    } else{
+        setOriginalColor()
+        return contColors=true;
+    }
+}
+
+bPalleteColors.addEventListener("click",booleanColors);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+logo monkey type: #876571
+cor icones: #48373d
+cor hover: #eae5e9
+logo monkey see: #6d5b60 
+cor tab esc: #48373d
+cor de fundo: #b8a7aa
+
+*/
+
+
+
+
+
+ 
