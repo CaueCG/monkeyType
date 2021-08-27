@@ -1,289 +1,285 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
-:root{
-    --color1: #deb415; 
-    --color2: #646669;
-    --color3: #323437;
-    --color4: #bebebe;
-    --color5: #5f605f; 
-}
-
-html, body{
-    height: 100%;
-    background:  var(--color3);
-    margin: 15px 32px 5px 32px;
-    overflow: hidden;
-    font-family: 'Roboto Mono', monospace;
+:root {
+  --color1: #deb415;
+  --color2: #646669;
+  --color3: #323437;
+  --color4: #bebebe;
+  --color5: #5f605f;
 }
 
-
-ul,nav{
-    list-style: none;
-    display: flex;
-    margin: 0px 3px;
-}
-li{
-    margin-right: 3px;
-    color:  var(--color5);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-i{
-    margin: 0 10px;
-}
-a{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    text-decoration: none;
-}
-p{
-    color: var(--color2);
-}
-header{
-    margin-top: 50px;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-main{
-    position: absolute;
-    top:150px;
-    width: 100%;
-}
-footer{
-    position: absolute;
-    bottom:0;
-    width: 100%;
-}
-a:hover{
-    color:  var(--color4);
-}
-button:hover{
-    color:  var(--color4);
-}
-.fas:hover{
-    color: var(--color4);
-}
-#menuIconLogo{
-    flex-direction: row;
-}
-#menuOptionGame{
-    flex-direction: column;
-}
-#divLogoMonkey{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-}
-#monkeySee{
-    color: var(--color5);
-    margin-bottom: -15px;
-    font-size: 0.8em;
-    
-}
-#monkeytype{
-    margin-top:0;
-    color: var(--color1);
-    font-size: 2.7em;
-    font-weight: 400;
+html,
+body {
+  height: 100%;
+  background: var(--color3);
+  margin: 15px 32px 5px 32px;
+  overflow: hidden;
+  font-family: "Roboto Mono", monospace;
 }
 
-.fab:hover{
-    color:  var(--color4);
+ul,
+nav {
+  list-style: none;
+  display: flex;
+  margin: 0px 3px;
 }
-.fas{
-    color: var(--color2);
+li {
+  margin-right: 3px;
+  color: var(--color5);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.containerHeader{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+i {
+  margin: 0 10px;
+}
+a {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none;
+}
+p {
+  color: var(--color2);
+}
+header {
+  margin-top: 50px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+main {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+a:hover {
+  color: var(--color4);
+}
+button:hover {
+  color: var(--color4);
+}
+.fas:hover {
+  color: var(--color4);
+}
+#menuIconLogo {
+  flex-direction: row;
+}
+#menuOptionGame {
+  flex-direction: column;
+}
+#divLogoMonkey {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+#monkeySee {
+  color: var(--color5);
+  margin-bottom: -15px;
+  font-size: 0.8em;
+}
+#monkeytype {
+  margin-top: 0;
+  color: var(--color1);
+  font-size: 2.7em;
+  font-weight: 400;
+}
+
+.fab:hover {
+  color: var(--color4);
+}
+.fas {
+  color: var(--color2);
+}
+.containerHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .menuIcon {
-    display: flex;
+  display: flex;
 }
 
-.optionGame{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-right: 3px;
-    padding-top: 4px;
-    margin-right: 100px;
+.optionGame {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 3px;
+  padding-top: 4px;
+  margin-right: 100px;
 }
-.buttonOptionGame{
-    border: none;
-    background: none;
-    font-weight: 600;
-    padding: 2px;
-    color: var(--color2);
-}
-
-
-
-.containerMain{
-    display: flex;
-    flex-direction: column;
-    margin-right: 100px;
-}
-.gameMonkey{
-    text-align: justify;
-    font-weight: 900;
-    margin: 0px 120px;
-}
-.buttonReset{
-    display: flex;
-    justify-content: center;
-}
-.buttonReset i{
-    padding:25px 50px;
-    cursor: pointer;
-    margin-bottom: 40px;
-}
-.buttonReset .fas:hover{
-    color: var(--color1);
-}
-.sheetComands{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.divSections{
-    display: flex;
-    flex-direction: column;
-}
-.sectionSheetComands{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.iconSheetComands{
-    padding: 1.6px 5px;
-    background: var(--color2);
-    color: var(--color3);
-    margin: 3px 10px 3px 3px;
-}
-.textSheetComands{
-    margin: 3px 10px 3px 3px;
+.buttonOptionGame {
+  border: none;
+  background: none;
+  font-weight: 600;
+  padding: 2px;
+  color: var(--color2);
 }
 
+.containerMain {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+.gameMonkey {
+  text-align: justify;
+  font-weight: 900;
+  margin: 0px 120px;
+}
+.buttonReset {
+  display: flex;
+  justify-content: center;
+}
+.buttonReset i {
+  padding: 25px 50px;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+.buttonReset .fas:hover {
+  color: var(--color1);
+}
+.sheetComands {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.divSections {
+  display: flex;
+  flex-direction: column;
+}
+.sectionSheetComands {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.iconSheetComands {
+  padding: 1.6px 5px;
+  background: var(--color2);
+  color: var(--color3);
+  margin: 3px 10px 3px 3px;
+}
+.textSheetComands {
+  margin: 3px 10px 3px 3px;
+}
 
-.containerFooter{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.containerFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.containerFooter p{
-    color: var(--color2);
+.containerFooter p {
+  color: var(--color2);
 }
-.palleteColors{
-    display: flex;
-    align-items: center;
-    background:   var(--color3);
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    cursor: pointer;
-    padding: 2px 5px;
+.palleteColors {
+  display: flex;
+  align-items: center;
+  background: var(--color3);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  padding: 2px 5px;
 }
-.socialNetworks{
-    margin-right: 110px;
-    display:flex;
-    align-items: center;
+.socialNetworks {
+  margin-right: 110px;
+  display: flex;
+  align-items: center;
 }
-.iconSocialNetworks i{
-    margin: 0px 2px;
-    color: var(--color2);
+.iconSocialNetworks i {
+  margin: 0px 2px;
+  color: var(--color2);
 }
 
-.gameMonkey p::before{
-    content: "|";
-    margin-right: -5px;
-    font-size: 1.5em;
-    font-weight: 900;
-    color: var(--color1);
+.gameMonkey p::before {
+  content: "|";
+  margin-right: -5px;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: var(--color1);
+  opacity: 1;
+  animation: flashingBar.7s infinite;
+}
+
+@keyframes flashingBar {
+  0%,
+  100% {
     opacity: 1;
-    animation: flashingBar.7s infinite  ;
-}
-
-@keyframes flashingBar{
-    0%, 100%{
-        opacity: 1;
-    }
-    50%{
-        opacity: 0;
-    }
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 @media screen and (max-width: 850px) {
-    #menuIconLogo{
-        display: flex;
-        flex-direction: column;
-    }
-    .menuIcon i{
-        margin: 10px;
-    }
-    #menuIconLogo nav{
-       justify-content: center;
-    }
-    #menuIconLogo nav ul{
-        display: flex;
-        width: 200px;
-        padding-left: 0;
-        justify-content: center;
-    }
-    #menuOptionGame{
-        padding-top:6px;
-    }
-    .palleteColors{
-        margin-left: 40px;
-    }
-    .iconSocialNetworks p{
-        margin: 4px 0px;
-    }
-    .projectStudy p{
-        line-break: 20px;
-    }
-    .containerFooter{
-        min-width: 590px;
-    }
-    .divSections{
-        flex-direction: row;
-    }
-    .buttonReset i{
-        margin-bottom: 15px;
-    }
-    .gameMonkey{
-        margin: 0px 100px;
-    }
-    footer p{
-        font-size: 0.95em;
-    }
+  #menuIconLogo {
+    display: flex;
+    flex-direction: column;
+  }
+  .menuIcon i {
+    margin: 10px;
+  }
+  #menuIconLogo nav {
+    justify-content: center;
+  }
+  #menuIconLogo nav ul {
+    display: flex;
+    width: 200px;
+    padding-left: 0;
+    justify-content: center;
+  }
+  #menuOptionGame {
+    padding-top: 6px;
+  }
+  .palleteColors {
+    margin-left: 40px;
+  }
+  .iconSocialNetworks p {
+    margin: 4px 0px;
+  }
+  .projectStudy p {
+    line-break: 20px;
+  }
+  .containerFooter {
+    min-width: 590px;
+  }
+  .divSections {
+    flex-direction: row;
+  }
+  .buttonReset i {
+    margin-bottom: 15px;
+  }
+  .gameMonkey {
+    margin: 0px 100px;
+  }
+  footer p {
+    font-size: 0.95em;
+  }
 }
 
-@media screen and (max-width: 750px){
-    .buttonReset i{
-        margin-bottom: 15px;
-        padding: 10px 50px;
-    }
-    .gameMonkey{
-        margin: 0px 80px;
-        font-size: 0.95em;
-    }
+@media screen and (max-width: 750px) {
+  .buttonReset i {
+    margin-bottom: 15px;
+    padding: 10px 50px;
+  }
+  .gameMonkey {
+    margin: 0px 80px;
+    font-size: 0.95em;
+  }
 }
 
-
-@media screen and (max-width: 625px){
-    .buttonReset i{
-        margin-bottom: 30px;
-        padding: 10px 50px;
-    }
-    .gameMonkey{
-        margin: 0px 10px;
-        font-size: 0.95em;
-    }
+@media screen and (max-width: 625px) {
+  .buttonReset i {
+    margin-bottom: 30px;
+    padding: 10px 50px;
+  }
+  .gameMonkey {
+    margin: 0px 10px;
+    font-size: 0.95em;
+  }
 }
-

@@ -59,29 +59,54 @@ let arrayPhrases = [
   "twister",
 ];
 
-let Phrase = "";
-function randomArrayPhrases() {
-  Phrase = "";
+let phrase = "";
+function randomArrayPhrase() {
+  phrase = "";
   for (let i = 0; i < arrayPhrases.length - 10; i++) {
-    let randomArrayPhrases =
+    let randomWords =
       arrayPhrases[Math.floor(Math.random() * arrayPhrases.length)];
 
-    if (Phrase == "") {
-      Phrase += randomArrayPhrases;
+    if (phrase == "") {
+      phrase += randomWords;
     } else {
-      Phrase += " " + randomArrayPhrases;
+      phrase += " " + randomWords;
     }
   }
-  return (gameMonkey.innerHTML = Phrase);
+  gameMonkey.innerHTML = phrase;
 }
 
-gameMonkey.innerHTML = Phrase;
-bReset.addEventListener("click", randomArrayPhrases);
-randomArrayPhrases();
+gameMonkey.innerHTML = phrase;
+bReset.addEventListener("click", randomArrayPhrase);
+randomArrayPhrase();
 
-var words = Phrase.split(" ");
-var letters = words[0].split("");
 //
+//Separando os caracteres no html
+//
+
+function newSpanWordsAndLetters() {
+  let words = phrase.split(" ");
+  gameMonkey.innerHTML = "";
+
+  words.forEach((elementWords, positionWords) => {
+    let letters = words[positionWords].split("");
+    letters.forEach((elementLetters, positionLetters) => {
+      gameMonkey.innerHTML +=
+        "<span class='letters'>" + letters[positionLetters] + "</span>";
+    });
+    gameMonkey.innerHTML += "<span class='words'>" + " </span>";
+  });
+}
+newSpanWordsAndLetters();
+
+//
+//Pegando tecla digitada
+//
+function getKeypress(caracter) {
+  console.log(caracter.key);
+}
+
+addEventListener("keypress", getKeypress);
+
 //
 //Sistema de cores
 //
@@ -106,11 +131,11 @@ function booleanColors() {
   if (contColors) {
     textColors.innerHTML = "Light Them";
     setNewColor();
-    return (contColors = false);
+    contColors = false;
   } else {
     textColors.innerHTML = "Dark Them";
     setOriginalColor();
-    return (contColors = true);
+    contColors = true;
   }
 }
 
