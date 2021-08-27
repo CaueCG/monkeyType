@@ -77,23 +77,25 @@ function randomArrayPhrase() {
 
 gameMonkey.innerHTML = phrase;
 bReset.addEventListener("click", randomArrayPhrase);
+bReset.addEventListener("click", newSpanWordsAndLetters);
 randomArrayPhrase();
 
 //
 //Separando os caracteres no html
 //
 
-function newSpanWordsAndLetters() {
+function newSpanWordsAndLetters(newLetter) {
   let words = phrase.split(" ");
   gameMonkey.innerHTML = "";
 
   words.forEach((elementWords, positionWords) => {
     let letters = words[positionWords].split("");
+    let getLetters = "";
     letters.forEach((elementLetters, positionLetters) => {
-      gameMonkey.innerHTML +=
+      getLetters +=
         "<span class='letters'>" + letters[positionLetters] + "</span>";
     });
-    gameMonkey.innerHTML += "<span class='words'>" + " </span>";
+    gameMonkey.innerHTML += "<span class='words'>" + getLetters + " </span>";
   });
 }
 newSpanWordsAndLetters();
