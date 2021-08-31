@@ -6,6 +6,7 @@
   --color3: #323437;
   --color4: #bebebe;
   --color5: #5f605f;
+  --contSpan: ;
 }
 
 html,
@@ -196,7 +197,17 @@ button:hover {
   color: var(--color2);
 }
 
-.gameMonkey p::before {
+.active::before {
+  content: "|";
+  margin-right: -5px;
+  margin-left: -5px;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: var(--color1);
+  opacity: 1;
+  animation: flashingBar.7s infinite;
+}
+.firstLetter::before {
   content: "|";
   margin-right: -5px;
   font-size: 1.5em;
@@ -206,6 +217,12 @@ button:hover {
   animation: flashingBar.7s infinite;
 }
 
+.incorrect {
+  color: #fa4934;
+}
+.correct {
+  color: #e3d4ac;
+}
 @keyframes flashingBar {
   0%,
   100% {

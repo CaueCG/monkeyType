@@ -51,7 +51,7 @@ let arrayPhrases = [
   "then",
   "interface",
   "will",
-  "Willie Wonka",
+  "willie wonka",
   "length",
   "she",
   "good",
@@ -60,6 +60,7 @@ let arrayPhrases = [
 ];
 
 let phrase = "";
+let currentPhrase = "";
 function randomArrayPhrase() {
   phrase = "";
   for (let i = 0; i < arrayPhrases.length - 10; i++) {
@@ -73,6 +74,7 @@ function randomArrayPhrase() {
     }
   }
   gameMonkey.innerHTML = phrase;
+  currentPhrase = "";
 }
 
 gameMonkey.innerHTML = phrase;
@@ -84,46 +86,104 @@ randomArrayPhrase();
 //Separando os caracteres no html
 //
 
-function newSpanWordsAndLetters(newLetter) {
+function newSpanWordsAndLetters(event) {
   let words = phrase.split(" ");
   gameMonkey.innerHTML = "";
+  let idCont = 0;
 
   words.forEach((elementWords, positionWords) => {
     let letters = words[positionWords].split("");
     let getLetters = "";
     letters.forEach((elementLetters, positionLetters) => {
       getLetters +=
-        "<span class='letters'>" + letters[positionLetters] + "</span>";
+        "<span class='letters' id='" +
+        idCont +
+        "'>" +
+        letters[positionLetters] +
+        "</span>";
+      idCont++;
     });
-    gameMonkey.innerHTML += "<span class='words'>" + getLetters + " </span>";
+    gameMonkey.innerHTML +=
+      "<span class='words'>" +
+      getLetters +
+      " </span> <span = class'space' id='" +
+      idCont +
+      "'> </span>";
+    idCont++;
   });
 }
 newSpanWordsAndLetters();
 
 //
-//Pegando tecla digitada
+//Pegando tecla digitada e verificando se está correta
 //
-function getKeypress(caracter) {
-  console.log(caracter.key);
+
+function getKeydown(event) {
+  let lettersAndSpace =
+    (event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode === 32;
+  let pressedKeyboard = event.key.toLowerCase();
+  const textElement = document.getElementById(currentPhrase.length);
+  const previousTextElement = document.getElementById(currentPhrase.length - 1);
+
+  if (event.keyCode == 8) {
+    currentPhrase = currentPhrase.substring(0, currentPhrase.length - 1);
+    textElement.classList.remove("correct", "incorrect");
+
+    barAnimation();
+  } else if (
+    lettersAndSpace == textElement.innerHTML ||
+    pressedKeyboard == textElement.innerHTML
+  ) {
+    textElement.classList.add("correct");
+    currentPhrase += pressedKeyboard;
+  } else if (lettersAndSpace) {
+    textElement.classList.add("incorrect");
+    currentPhrase += pressedKeyboard;
+  }
+  console.log(
+    currentPhrase,
+    currentPhrase.length,
+    pressedKeyboard,
+    lettersAndSpace
+  );
 }
+addEventListener("keydown", getKeydown);
 
-addEventListener("keypress", getKeypress);
+//
+//Efeito de digitação
+//
+function barAnimation() {
+  const textElement = document.getElementById(currentPhrase.length);
+  const previousTextElement = document.getElementById(currentPhrase.length - 1);
+  const proximTextElement = document.getElementById(currentPhrase.length + 1);
 
+  if (currentPhrase.length == 0) {
+    textElement.classList.add("active");
+  } else if (currentPhrase.length >= 1) {
+    previousTextElement.classList.remove("active");
+    textElement.classList.add("active");
+  }
+}
+barAnimation();
+
+addEventListener("keydown", barAnimation);
 //
 //Sistema de cores
 //
+
+let newVariable = document.querySelector(":root");
+
 let contColors = true;
 bPalleteColors = document.getElementById("palleteColors");
 textColors = document.querySelector(".palleteColors p");
-let newColor = document.querySelector(":root");
-function setNewColor() {
-  newColor.setAttribute(
+function setnewVariable() {
+  newVariable.setAttribute(
     "style",
     "--color1: #876571; --color2: #48373d; --color3: #b8a7aa; --color4: #eae5e9; --color5: #48373d"
   );
 }
 function setOriginalColor() {
-  newColor.setAttribute(
+  newVariable.setAttribute(
     "style",
     " --color1: #deb415; --color2: #646669;--color3: #323437;--color4: #bebebe;--color5: #5f605f; "
   );
@@ -132,7 +192,7 @@ function setOriginalColor() {
 function booleanColors() {
   if (contColors) {
     textColors.innerHTML = "Light Them";
-    setNewColor();
+    setnewVariable();
     contColors = false;
   } else {
     textColors.innerHTML = "Dark Them";
