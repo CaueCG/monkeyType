@@ -57,13 +57,30 @@ let arrayPhrases = [
   "good",
   "work",
   "twister",
+  "love",
+  "match",
+  "speak",
+  "little",
+  "bigger",
+  "jungle",
+  "program",
+  "true",
+  "lost",
+  "walking",
+  "every",
+  "sunday",
+  "really",
+  "brazillian",
+  "boy",
+  "girl",
+  "game",
 ];
 
 let phrase = "";
 let currentPhrase = "";
 function randomArrayPhrase() {
   phrase = "";
-  for (let i = 0; i < arrayPhrases.length - 10; i++) {
+  for (let i = 0; i < arrayPhrases.length; i++) {
     let randomWords =
       arrayPhrases[Math.floor(Math.random() * arrayPhrases.length)];
 
@@ -80,13 +97,14 @@ function randomArrayPhrase() {
 gameMonkey.innerHTML = phrase;
 bReset.addEventListener("click", randomArrayPhrase);
 bReset.addEventListener("click", newSpanWordsAndLetters);
+bReset.addEventListener("click", addBarAnimation);
 randomArrayPhrase();
 
 //
 //Separando os caracteres no html
 //
 
-function newSpanWordsAndLetters(event) {
+function newSpanWordsAndLetters(newLeter) {
   let words = phrase.split(" ");
   gameMonkey.innerHTML = "";
   let idCont = 0;
@@ -95,20 +113,10 @@ function newSpanWordsAndLetters(event) {
     let letters = words[positionWords].split("");
     let getLetters = "";
     letters.forEach((elementLetters, positionLetters) => {
-      getLetters +=
-        "<span class='letters' id='" +
-        idCont +
-        "'>" +
-        letters[positionLetters] +
-        "</span>";
+      getLetters += `<span class='letters' id='${idCont}'>${letters[positionLetters]}</span>`;
       idCont++;
     });
-    gameMonkey.innerHTML +=
-      "<span class='words'>" +
-      getLetters +
-      " </span> <span = class'space' id='" +
-      idCont +
-      "'> </span>";
+    gameMonkey.innerHTML += `<span class='words'>${getLetters}</span> <span class='space' id='${idCont}'> </span>`;
     idCont++;
   });
 }
@@ -123,22 +131,21 @@ function getKeydown(event) {
     (event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode === 32;
   let pressedKeyboard = event.key.toLowerCase();
   const textElement = document.getElementById(currentPhrase.length);
-  const previousTextElement = document.getElementById(currentPhrase.length - 1);
 
   if (event.keyCode == 8) {
     currentPhrase = currentPhrase.substring(0, currentPhrase.length - 1);
-    textElement.classList.remove("correct", "incorrect");
-
-    barAnimation();
+    removeBarAnimation();
   } else if (
     lettersAndSpace == textElement.innerHTML ||
     pressedKeyboard == textElement.innerHTML
   ) {
     textElement.classList.add("correct");
     currentPhrase += pressedKeyboard;
+    addBarAnimation();
   } else if (lettersAndSpace) {
     textElement.classList.add("incorrect");
     currentPhrase += pressedKeyboard;
+    addBarAnimation();
   }
   console.log(
     currentPhrase,
@@ -152,31 +159,36 @@ addEventListener("keydown", getKeydown);
 //
 //Efeito de digitação
 //
-function barAnimation() {
-  const textElement = document.getElementById(currentPhrase.length);
-  const previousTextElement = document.getElementById(currentPhrase.length - 1);
-  const proximTextElement = document.getElementById(currentPhrase.length + 1);
 
+function addBarAnimation() {
+  let textElement = document.getElementById(currentPhrase.length);
+  let previousTextElement = document.getElementById(currentPhrase.length - 1);
   if (currentPhrase.length == 0) {
     textElement.classList.add("active");
-  } else if (currentPhrase.length >= 1) {
-    previousTextElement.classList.remove("active");
+  } else if (currentPhrase.length > 0) {
     textElement.classList.add("active");
+    previousTextElement.classList.remove("active");
   }
 }
-barAnimation();
 
-addEventListener("keydown", barAnimation);
+function removeBarAnimation() {
+  let textElement = document.getElementById(currentPhrase.length);
+  let nextTextElement = document.getElementById(currentPhrase.length + 1);
+
+  nextTextElement.classList.remove("active");
+  textElement.classList.remove("correct", "incorrect");
+  textElement.classList.add("active");
+}
+addBarAnimation();
+
 //
 //Sistema de cores
 //
-
 let newVariable = document.querySelector(":root");
-
 let contColors = true;
 bPalleteColors = document.getElementById("palleteColors");
 textColors = document.querySelector(".palleteColors p");
-function setnewVariable() {
+function setnewColor() {
   newVariable.setAttribute(
     "style",
     "--color1: #876571; --color2: #48373d; --color3: #b8a7aa; --color4: #eae5e9; --color5: #48373d"
@@ -191,11 +203,11 @@ function setOriginalColor() {
 
 function booleanColors() {
   if (contColors) {
-    textColors.innerHTML = "Light Them";
-    setnewVariable();
+    textColors.innerHTML = "Light Theme";
+    setnewColor();
     contColors = false;
   } else {
-    textColors.innerHTML = "Dark Them";
+    textColors.innerHTML = "Dark Theme";
     setOriginalColor();
     contColors = true;
   }
