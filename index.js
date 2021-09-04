@@ -79,6 +79,7 @@ let arrayPhrases = [
 let phrase = "";
 let currentPhrase = "";
 let numberWords = 20;
+let correct = 0;
 
 function randomArrayPhrase() {
   phrase = "";
@@ -94,6 +95,7 @@ function randomArrayPhrase() {
   }
   gameMonkey.innerHTML = phrase;
   currentPhrase = "";
+  correct = 0;
 }
 
 gameMonkey.innerHTML = phrase;
@@ -155,8 +157,25 @@ function getKeydown(event) {
     (event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode === 32;
   let pressedKeyboard = event.key.toLowerCase();
   const textElement = document.getElementById(currentPhrase.length);
+  const LastTextElement = document.getElementById(currentPhrase.length - 1);
+  if (phrase.length === currentPhrase.length) {
+    alert(
+      `Você acertou: ${correct} caracteres de um total de ${phrase.length}`
+    );
+    randomArrayPhrase();
+    newSpanWordsAndLetters();
+  }
 
   if (event.keyCode == 8) {
+    lastLetterCurrentPhrase = currentPhrase.split("");
+    if (
+      LastTextElement.innerHTML ==
+      lastLetterCurrentPhrase[currentPhrase.length - 1]
+    ) {
+      correct--;
+    } else {
+      correct;
+    }
     currentPhrase = currentPhrase.substring(0, currentPhrase.length - 1);
     removeBarAnimation();
   } else if (
@@ -166,17 +185,12 @@ function getKeydown(event) {
     textElement.classList.add("correct");
     currentPhrase += pressedKeyboard;
     addBarAnimation();
+    correct++;
   } else if (lettersAndSpace) {
     textElement.classList.add("incorrect");
     currentPhrase += pressedKeyboard;
     addBarAnimation();
   }
-  console.log(
-    currentPhrase,
-    currentPhrase.length,
-    pressedKeyboard,
-    lettersAndSpace
-  );
 }
 addEventListener("keydown", getKeydown);
 
@@ -203,6 +217,7 @@ function removeBarAnimation() {
   textElement.classList.remove("correct", "incorrect");
   textElement.classList.add("active");
 }
+
 addBarAnimation();
 
 //
