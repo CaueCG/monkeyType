@@ -32,7 +32,7 @@ let arrayPhrases = [
   "prototype",
   "haircut",
   "very",
-  "felings",
+  "fellings",
   "world",
   "by",
   "have",
@@ -78,9 +78,11 @@ let arrayPhrases = [
 
 let phrase = "";
 let currentPhrase = "";
+let numberWords = 20;
+
 function randomArrayPhrase() {
   phrase = "";
-  for (let i = 0; i < arrayPhrases.length; i++) {
+  for (let i = 0; i <= numberWords; i++) {
     let randomWords =
       arrayPhrases[Math.floor(Math.random() * arrayPhrases.length)];
 
@@ -99,6 +101,28 @@ bReset.addEventListener("click", randomArrayPhrase);
 bReset.addEventListener("click", newSpanWordsAndLetters);
 bReset.addEventListener("click", addBarAnimation);
 randomArrayPhrase();
+//
+//Numero de palavras
+//
+const button20 = document.getElementById("button20");
+const button30 = document.getElementById("button30");
+const button50 = document.getElementById("button50");
+
+function altereNumberWords(number) {
+  numberWords = number;
+  randomArrayPhrase();
+  newSpanWordsAndLetters();
+  addBarAnimation();
+}
+button20.addEventListener("click", function () {
+  altereNumberWords(20);
+});
+button30.addEventListener("click", function () {
+  altereNumberWords(30);
+});
+button50.addEventListener("click", function () {
+  altereNumberWords(50);
+});
 
 //
 //Separando os caracteres no html

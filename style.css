@@ -90,6 +90,9 @@ button:hover {
   font-size: 2.7em;
   font-weight: 400;
 }
+#buttonWords {
+  color: var(--color1);
+}
 
 .fab:hover {
   color: var(--color4);
